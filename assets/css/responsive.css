@@ -1,0 +1,18 @@
+@media (max-width: 1030px) {
+}
+@media (max-width: 992px) {
+  home navbar .row {
+    width: 100%;
+    /* margin: 0; */
+  }
+}
+@media (max-width: 768px) {
+  .product-box .first-product {
+    height: 200px;
+  }
+}
+@media (max-width: 576px) {
+}
+
+@media (max-width: 330px) {
+}

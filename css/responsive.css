@@ -1,0 +1,38 @@
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+}
+/* admin category */
+@media (max-width: 768px) {
+  .category-display {
+    overflow-y: scroll;
+  }
+
+  .category-display .category-display-table {
+    width: 80rem;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+/* admmin product */
+@media (max-width: 768px) {
+  .product-display {
+    overflow-y: scroll;
+  }
+
+  .product-display .product-display-table {
+    width: 80rem;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+}
