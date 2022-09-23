@@ -44,9 +44,18 @@ if (isset($_SESSION['user'])) {
                                 <button style="background-color:#993721;border-color:#993721" type="submit" name="login"
                                     class="btn btn-lg btn-primary btn-block"><span style="padding:0 10px"
                                         class="glyphicon glyphicon-log-in"></span>লগ ইন</button>
+
+                               
                             </fieldset>
+                          
                         </form>
+                      
                     </div>
+                    <div style="display:flex;justify-content:center;"> 
+                    <div style="background-color:#e97257f5 ;height:30px;width:auto;text-align:center;border-radius:2px">
+                                    <a href="../index.php" style="font-size:20px;font-weight:550;color:#fff;text-decoration:none">হোম এ ফিরে যান</a>
+                                </div>
+                                </div>
                 </div>
                 <?php
 if (isset($_SESSION['message'])) {

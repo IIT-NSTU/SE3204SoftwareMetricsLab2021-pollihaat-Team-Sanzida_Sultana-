@@ -83,7 +83,7 @@ $customer = $order->getCustomerByOrderId($order_data['orderId']);
 
                 <div>আইডিঃ<?php echo $convert::en2bn($customerData['id']) ?> </div>
                 <div> <?php echo $customerData['customerName'] ?></div>
-                <div> <?php echo $customerData['phone'] ?></div>
+                <div> <?php echo $convert::en2bn($customerData['phone']) ?></div>
                 <div><?php echo $customerData['email'] ?></div>
 
 
@@ -149,8 +149,8 @@ $product = $order->getProductDetailsByOrderId($order_data['orderId']);
                 <td style="font-weight:550;font-size:16px;text-align:center;border:1px solid #701b08">
                     <select name="accept" style="font-size:12px;">
                         <?php if ($order_data['isReceived'] == 0) {?>
-                        <option value="0" style="color:#993721" selected>হয়নি</option>
-                        <option value="1" style="color:#06340f">হয়েছে</option>
+                        <option value="0" style="color:#fff;font-weight:600" selected>হয়নি</option>
+                        <option value="1" style="color:#fff;font-weight:600">হয়েছে</option>
 
                         <?php } else {?>
                         <option value="0">হয়নি</option>
@@ -163,12 +163,12 @@ $product = $order->getProductDetailsByOrderId($order_data['orderId']);
                 <td style="font-weight:550;font-size:16px;text-align:center;border:1px solid #701b08">
                     <select name="deliver" style="font-size:12px">
                         <?php if ($order_data['isDelivered'] == 0) {?>
-                        <option style="font-size:13px;" value="0" selected>হয়নি</option>
-                        <option value="1">হয়েছে</option>
+                        <option style="font-size:13px;font-weight:600" value="0" selected>হয়নি</option>
+                        <option value="1" style="font-weight:600 ;">হয়েছে</option>
 
                         <?php } else {?>
-                        <option value="0">হয়নি</option>
-                        <option value="1" selected>হয়েছে</option>
+                        <option value="0" style="font-weight:600">হয়নি</option>
+                        <option value="1" style="font-weight: 600;" selected>হয়েছে</option>
                         <?php }?>
                     </select>
 
@@ -218,7 +218,7 @@ $product = $order->getProductDetailsByOrderId($order_data['orderId']);
 
         </tr>
         <?php }} else {
-    echo "<p class='empty'>কোন অর্ডার নেই </p>";
+  
 
 }?>
 

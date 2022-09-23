@@ -42,7 +42,7 @@ if (isset($_GET['edit']) && isset($_GET['id'])) {
     if ($result) {
         ?>
             <form action="includes/manageProd.inc.php" method="post" enctype="multipart/form-data">
-                <h3 class="title">update the prduct</h3>
+                <h3 class="title">পণ্যের তথ্য পরিবর্তন করুন</h3>
                 <input type="hidden" name="id" value="<?php echo $result['id']; ?> ">
 
                 <input type="text" id="category_name" value="<?php echo $result['name']; ?>"
@@ -115,7 +115,7 @@ foreach ($categories_data as $data) {?>
                     oninvalid="this.setCustomValidity('অনুগ্রহ করে পণ্যের পরিমাণ উল্লেখ করুন')"
                     oninput="setCustomValidity('')">
 
-                <textarea id="txtArea" rows="3" cols="44" style=" font-size:18px; max-width:100%" name='description'
+                <textarea id="txtArea" rows="3" cols="48" style=" font-size:18px; max-width:100%" name='description'
                     placeholder=" পণ্য সম্পর্কে বিস্তারিত কিছু লিখুন"> <?php echo trim($result['description']); ?>
                 </textarea>
                 <!-- <p><img id="output" width="100" img src="../images/category/<?php #echo $result['image'] ?>"></p> -->

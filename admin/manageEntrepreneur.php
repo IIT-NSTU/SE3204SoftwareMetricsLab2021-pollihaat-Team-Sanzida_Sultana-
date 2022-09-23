@@ -54,9 +54,9 @@ if (isset($_GET['edit']) && isset($_GET['name'])) {
                 <input type="text" class="box" name="entrepreneur_password" value="<?php echo $result['password']; ?>"
                     placeholder="উদ্দ্যোক্তার পাসওয়ার্ড দিন" required>
 
-                <input type="submit" style="background-color:#554308" value="উদ্দ্যোক্তার তথ্য পরিবর্তন করুন"
+                <input type="submit" style="background-color:#701b08" value="উদ্দ্যোক্তার তথ্য পরিবর্তন করুন"
                     name="edit_entrepreneur" class="btn">
-                <a href="entrepreneur.php" style="background-color:#B5973F" class="btn">পিছনে ফিরে যান!</a>
+                <a href="entrepreneur.php" style="background-color:#993721" class="btn">পিছনে ফিরে যান!</a>
             </form>
 
             <?php } else {

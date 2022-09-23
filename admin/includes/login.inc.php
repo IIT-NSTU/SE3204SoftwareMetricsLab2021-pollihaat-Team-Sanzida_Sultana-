@@ -17,7 +17,7 @@ if (isset($_POST['login'])) {
     $auth = $user->check_login($username, $pass);
 
     if (!$auth) {
-        $_SESSION['message'] = 'Invalid username or password';
+        $_SESSION['message'] = 'আপনি ভুল নাম অথবা পাসওয়ার্ড দিয়েছেন';
         header('location:../login.php');
     } else {
         $_SESSION['user'] = $auth;

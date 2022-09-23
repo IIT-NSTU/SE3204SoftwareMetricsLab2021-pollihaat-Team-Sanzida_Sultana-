@@ -85,7 +85,7 @@ unset($_SESSION['msg']);
     <div class="flex">
 
         <a class="navbar-brand" href="#">
-            <img style="margin-top:0" src="images/logo (transparent3).png" alt="" width="160" height="60px">
+            <img style="margin-top:0" src="images/logo (transparent3).png" alt="" width="200" height="70px">
         </a>
         <?php if ($_SESSION['role'] == 0) {
 
@@ -125,7 +125,7 @@ unset($_SESSION['msg']);
         </div>
 
         <div class="account-box">
-            <p style="font-size:18px;font-weight:590"> নাম: <span><?php echo $_SESSION['user_name']; ?></span></p>
+            <p style="font-size:16px;font-weight:590"> নাম: <span><?php echo $_SESSION['user_name']; ?></span></p>
             <!-- <p>email : <span><?php echo $_SESSION['admin_email']; ?></span></p>  -->
             <a style="font-size:18px;font-weight:550" href="includes/logout.inc.php" class="delete-btn">লগআউট</a>
             <!-- <div>new <a href="login.php">login</a> | <a href="register.php">register</a> </div> -->

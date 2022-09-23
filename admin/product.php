@@ -91,7 +91,7 @@ foreach ($categories_data as $data) {?>
                 style="display: none;"> -->
             <!-- </p> -->
             <!-- <input type="textArea" rows="6" cols="44" style="background: rgba(0,0,0,.5);"> -->
-            <textarea id="txtArea" rows="6" cols="44" style=" font-size:18px; max-width:100%" name='description'
+            <textarea id="txtArea" rows="6" cols="48" style=" font-size:18px; max-width:100%" name='description'
                 placeholder=" পণ্য সম্পর্কে বিস্তারিত কিছু লিখুন"></textarea>
 
             <p><img id="output" width="100" /></p>
@@ -184,7 +184,7 @@ if ($_SESSION['role'] == 0) {
                 <td>
                     <a href="manageProduct.php?edit&id=<?php echo $product_data['id']; ?>" class="btn">
                         <i class="fas fa-edit"></i>
-                        পরবর্তন </a>
+                        পরিবর্তন </a>
                     <a href="includes/manageProd.inc.php?delete&id=<?php echo $product_data['id']; ?>" class="btn">
                         <i class="fas fa-trash"></i>
                         মুছুন </a>

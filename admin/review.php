@@ -113,7 +113,7 @@ if ($_SESSION['role'] == 0) {
 if ($_SESSION['role'] == 1) {
     $arr1 = $rev->getEntrepreneurProductReview($_SESSION['user_name']);
 
-    if (!empty($arr)) {?>
+    if (!empty($arr1)) {?>
     <div class="row justify-content-center">
         <div class="row p-4 m-4">
             <h1 class="font-weight-bolder justify-content-center">আপনার পণ্যের ব্যাপারে ক্রেতার মতামত</h1>
@@ -190,6 +190,7 @@ if ($_SESSION['role'] == 1) {
 
     </div>
     <?php }} else {
+          echo '<p class="empty">কোনো প্রতিক্রিয়া নেই!</p>';
 
     }}?>
 

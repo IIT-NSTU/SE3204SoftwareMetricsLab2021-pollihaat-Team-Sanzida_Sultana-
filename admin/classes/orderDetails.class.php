@@ -20,7 +20,7 @@ class OrderDetails
         //   SELECT * from customer_order join order_details on customer_order.orderId=order_details.orderId join customers on customer_order.customerId=customers.Id;
         // $sql = "SELECT * from customer_order join customers on customer_order.customerId=customers.id";
 
-        $sql = "SELECT * from customer_order";
+        $sql = "SELECT * from customer_order order by orderId desc";
         $query = $this->connection->query($sql);
         $array = array();
 
@@ -113,7 +113,7 @@ class OrderDetails
             if ($query->num_rows > 0) {
                 while ($row = mysqli_fetch_assoc($query1)) {
                     $productData[$index1] = $row['productsId'];
-                    echo $productData[$index1];
+                    // echo $productData[$index1];
 
                     if ($productData[$index1] == $this->productId) {
                         $result = true;
