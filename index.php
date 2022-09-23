@@ -13,8 +13,9 @@ include 'admin/classes/Validatefunction.class.php';
 <section class="pollihaat-image">
     <div class="backgound-image">
         <div class="overlay">
-            <h1>পল্লীহাট</h1>
-            <p>আমার সংস্কৃতি, আমার অহংকার</p>
+            <h1 style="font-size:28px;font-weight:600">পল্লীহাট</h1>
+            <p style="font-weight:600 ;font-size:25px">"বাংলার পণ্য কিনুন,
+বাঙালি সংস্কৃতির সাথেই থাকুন"</p>
         </div>
     </div>
 
@@ -40,7 +41,7 @@ include 'admin/classes/Validatefunction.class.php';
         <div class="row" style="margin-top:60px">
             <!-- product box one -->
             <div class="col-sm-6 col-lg-4 mb-lg-0 mb-4 ">
-                <a href="#shoukhin">
+                <a href="#shajgoj">
                     <div class="product-box text-center position-relative">
                         <div class="product-inner">
                             <div class="product-image position-relative overflow-hidden">
@@ -66,7 +67,7 @@ include 'admin/classes/Validatefunction.class.php';
             <!-- product two -->
             <div class="col-sm-6 col-lg-4 mb-lg-0 mb-4 d-flex flex-column justify-content-between">
 
-                <a href="#">
+                <a href="#choto">
                     <div class="product-box text-center position-relative mb-4 mb-sm-0">
                         <div class="product-inner">
                             <div class="product-image position-relative overflow-hidden">
@@ -88,7 +89,7 @@ include 'admin/classes/Validatefunction.class.php';
                         </div>
                     </div>
                 </a>
-                <a href="#">
+                <a href="#grihoshojjaa">
                     <div class="product-box text-center position-relative">
                         <div class="product-inner">
                             <div class="product-image position-relative overflow-hidden">
@@ -114,7 +115,7 @@ include 'admin/classes/Validatefunction.class.php';
             <!--
                 product three -->
             <div class="col-sm-6 col-lg-4 mb-lg-0 mb-4">
-                <a href="#">
+                <a href="#mritshilpo">
                     <div class="product-box text-center position-relative">
                         <div class="product-inner">
                             <div class="product-image position-relative overflow-hidden">
@@ -192,10 +193,10 @@ $convert = new Converter();
 
     ?>
 <!-- !-- Kutir SHilpo --> -->
-<section class="kutir-shilpo" id="shoukhin">
+<section class="kutir-shilpo">
 
     <div class="container">
-        <h2>recommendation</h2>
+        <h2>প্রস্তাবিত পণ্য</h2>
         <div class="row" style="display:flex;flex-direction:row;flex-wrap:wrap;width:100%;justify-content:center" ;>
 
             <?php
@@ -284,7 +285,7 @@ $convert = new Converter();
 
 
 <!-- latest product -->
-<section class="kutir-shilpo" id="shoukhin">
+<section class="kutir-shilpo">
 
     <div class="container">
         <h2>নতুন পণ্য</h2>
@@ -300,7 +301,7 @@ if (!empty($arr1)) {
             ?>
             <div class="col-md-3 col-sm-6">
 
-                <div class="product-grid" id="shoukhin">
+                <div class="product-grid" id="">
                     <div class="product-image">
                         <a href="product.php?id=<?php echo $product_data['id'] ?>" class="image">
                             <img src="images/category/<?php echo $product_data['image'] ?>" width="300" height="300">
@@ -387,7 +388,7 @@ $arr = $cat->getProductByCategoryName($function->escape_string('হাতে ত
 ?>
 
 <!-- Kutir SHilpo -->
-<section class="kutir-shilpo" id="shoukhin">
+<section class="kutir-shilpo" id="">
 
     <div class="container">
         <h2>হাতে তৈরি গহনা</h2>
@@ -553,61 +554,78 @@ if (!empty($arr)) {
 
 <?php
 $cat = new Products();
-$arr = $cat->getProductByCategoryName("শাড়ি সমগ্র");
+$function = new Validatefunction();
+
+$arr = $cat->getProductByCategoryName($function->escape_string('শাড়ি সমগ্র'));
 
 $convert = new Converter();
 // print_r($arr);
 // exit();
 ?>
-<section class="sharee">
+
+
+<section class="kutir-shilpo">
 
     <div class="container">
-        <h2>শাড়ি </h2>
+        <h2>শাড়ি সমগ্র</h2>
         <div class="row">
 
             <?php
 if (!empty($arr)) {
     foreach ($arr as $product_data) {
-        $product_quantity = $convert::en2bn($product_data['quantity']);
-        $product_price = $convert::en2bn($product_data['price']);
+        if ($product_data['quantity'] > 0) {
+            $product_quantity = $convert::en2bn($product_data['quantity']);
+            $product_price = $convert::en2bn($product_data['price']);
 
-        ?>
-
-
-
-
-
+            ?>
             <div class="col-md-3 col-sm-6">
+
                 <div class="product-grid">
                     <div class="product-image">
-                        <a href="#" class="image">
+                        <a href="product.php?id=<?php echo $product_data['id'] ?>" class="image">
                             <img src="images/category/<?php echo $product_data['image'] ?>" width="300" height="300">
                         </a>
-                        <span class="product-discount-label"><?php echo $product_data['price'] ?>৳ </span>
+                        <span class="product-discount-label"
+                            style="background-color:#b51e2ce8;font-weight:550;font-size:15px"><?php echo $product_price ?>৳
+                        </span>
                         <ul class="product-links">
                             <!-- <li><a href="#"><i class="fa fa-search"></i></a></li>
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa fa-random"></i></a></li> -->
                         </ul>
+                        <form action="includes/cart.inc.php" method="post">
+                            <input type="submit" class="add-to-cart" value="কার্টে যোগ করুন" name="cart-add"
+                                style="background-color:#dd505dc2;font-weight:550;border-radius:8px">
+                            <!-- <a href="includes/cart.inc.php?pid=<?php #echo $product_data['id'] ?>"
+                                class="add-to-cart">কার্টে
+                                যোগ করুন</a> -->
+
+                    </div>
+
+
+                    <div class="product-content">
+
+                        <input type="hidden" name="product_id" value="<?php echo $product_data['id'] ?>">
+                        <span style="font-size:16px;font-weight:550;">পরিমাণঃ</span> <input type="number" placeholder=""
+                            value="1" min="1" max="<?php echo $product_data['quantity'] ?>" name="quantity" style="">
                         <input type="hidden" name="product_name" value="<?php #echo $fetch_products['name']; ?>">
                         <input type="hidden" name="product_price" value=<?php #echo $product_data['price']; ?>">
                         <input type="hidden" name="product_image" value="<?php #echo $fetch_products['image']; ?>">
-                        <a href="" class="add-to-cart">কার্টে যোগ করুন</a>
-                    </div>
-                    <div class="product-content">
                         <!-- <h3 class="title">/h3> -->
-                        <h3> <?php echo $product_data['name'] ?> (<span><?php echo $product_quantity ?>
+                        <h3 style="font-size:15px;font-weight:550"> <?php echo $product_data['name'] ?>
+                            (<span><?php echo $product_quantity ?>
                                 <?php echo $product_data['productType'] ?></span> ) </h3>
 
 
-                        <p> <?php echo $product_data['entrepreneurName'] ?></p>
+                        <p style="font-size:14px ;font-weight:550"> <?php echo $product_data['entrepreneurName'] ?></p>
 
 
                     </div>
+                    </form>
                 </div>
             </div>
-            <?php }} else {
-    echo '<p class="empty">no products added yet!</p>';
+            <?php }}} else {
+    echo '<p class="কোন পণ্য নেই!</p>';
 }
 
 ?>
@@ -619,6 +637,540 @@ if (!empty($arr)) {
 </section>
 
 
+<!-- শৌখিন সামগ্রী -->
+
+<?php
+$cat = new Products();
+$function = new Validatefunction();
+
+$arr = $cat->getProductByCategoryName($function->escape_string('শৌখিন সামগ্রী'));
+
+$convert = new Converter();
+// print_r($arr);
+// exit();
+?>
+
+
+<section class="kutir-shilpo">
+
+    <div class="container" id="shajgoj">
+        <h2>শৌখিন সামগ্রী</h2>
+        <div class="row">
+
+            <?php
+if (!empty($arr)) {
+    foreach ($arr as $product_data) {
+        if ($product_data['quantity'] > 0) {
+            $product_quantity = $convert::en2bn($product_data['quantity']);
+            $product_price = $convert::en2bn($product_data['price']);
+
+            ?>
+            <div class="col-md-3 col-sm-6">
+
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="product.php?id=<?php echo $product_data['id'] ?>" class="image">
+                            <img src="images/category/<?php echo $product_data['image'] ?>" width="300" height="300">
+                        </a>
+                        <span class="product-discount-label"
+                            style="background-color:#b51e2ce8;font-weight:550;font-size:15px"><?php echo $product_price ?>৳
+                        </span>
+                        <ul class="product-links">
+                            <!-- <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li> -->
+                        </ul>
+                        <form action="includes/cart.inc.php" method="post">
+                            <input type="submit" class="add-to-cart" value="কার্টে যোগ করুন" name="cart-add"
+                                style="background-color:#dd505dc2;font-weight:550;border-radius:8px">
+                            <!-- <a href="includes/cart.inc.php?pid=<?php #echo $product_data['id'] ?>"
+                                class="add-to-cart">কার্টে
+                                যোগ করুন</a> -->
+
+                    </div>
+
+
+                    <div class="product-content">
+
+                        <input type="hidden" name="product_id" value="<?php echo $product_data['id'] ?>">
+                        <span style="font-size:16px;font-weight:550;">পরিমাণঃ</span> <input type="number" placeholder=""
+                            value="1" min="1" max="<?php echo $product_data['quantity'] ?>" name="quantity" style="">
+                        <input type="hidden" name="product_name" value="<?php #echo $fetch_products['name']; ?>">
+                        <input type="hidden" name="product_price" value=<?php #echo $product_data['price']; ?>">
+                        <input type="hidden" name="product_image" value="<?php #echo $fetch_products['image']; ?>">
+                        <!-- <h3 class="title">/h3> -->
+                        <h3 style="font-size:15px;font-weight:550"> <?php echo $product_data['name'] ?>
+                            (<span><?php echo $product_quantity ?>
+                                <?php echo $product_data['productType'] ?></span> ) </h3>
+
+
+                        <p style="font-size:14px ;font-weight:550"> <?php echo $product_data['entrepreneurName'] ?></p>
+
+
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <?php }}} else {
+    echo '<p class="কোন পণ্য নেই!</p>';
+}
+
+?>
+
+        </div>
+    </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+<!-- chotoder khelna -->
+
+<?php
+$cat = new Products();
+$function = new Validatefunction();
+
+$arr = $cat->getProductByCategoryName($function->escape_string('ছোটদের খেলনা সামগ্রী'));
+
+$convert = new Converter();
+// print_r($arr);
+// exit();
+?>
+
+
+<section class="kutir-shilpo">
+
+    <div class="container" id="choto">
+        <h2>ছোটদের খেলনা সামগ্রী</h2>
+        <div class="row">
+
+            <?php
+if (!empty($arr)) {
+    foreach ($arr as $product_data) {
+        if ($product_data['quantity'] > 0) {
+            $product_quantity = $convert::en2bn($product_data['quantity']);
+            $product_price = $convert::en2bn($product_data['price']);
+
+            ?>
+            <div class="col-md-3 col-sm-6">
+
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="product.php?id=<?php echo $product_data['id'] ?>" class="image">
+                            <img src="images/category/<?php echo $product_data['image'] ?>" width="300" height="300">
+                        </a>
+                        <span class="product-discount-label"
+                            style="background-color:#b51e2ce8;font-weight:550;font-size:15px"><?php echo $product_price ?>৳
+                        </span>
+                        <ul class="product-links">
+                            <!-- <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li> -->
+                        </ul>
+                        <form action="includes/cart.inc.php" method="post">
+                            <input type="submit" class="add-to-cart" value="কার্টে যোগ করুন" name="cart-add"
+                                style="background-color:#dd505dc2;font-weight:550;border-radius:8px">
+                            <!-- <a href="includes/cart.inc.php?pid=<?php #echo $product_data['id'] ?>"
+                                class="add-to-cart">কার্টে
+                                যোগ করুন</a> -->
+
+                    </div>
+
+
+                    <div class="product-content">
+
+                        <input type="hidden" name="product_id" value="<?php echo $product_data['id'] ?>">
+                        <span style="font-size:16px;font-weight:550;">পরিমাণঃ</span> <input type="number" placeholder=""
+                            value="1" min="1" max="<?php echo $product_data['quantity'] ?>" name="quantity" style="">
+                        <input type="hidden" name="product_name" value="<?php #echo $fetch_products['name']; ?>">
+                        <input type="hidden" name="product_price" value=<?php #echo $product_data['price']; ?>">
+                        <input type="hidden" name="product_image" value="<?php #echo $fetch_products['image']; ?>">
+                        <!-- <h3 class="title">/h3> -->
+                        <h3 style="font-size:15px;font-weight:550"> <?php echo $product_data['name'] ?>
+                            (<span><?php echo $product_quantity ?>
+                                <?php echo $product_data['productType'] ?></span> ) </h3>
+
+
+                        <p style="font-size:14px ;font-weight:550"> <?php echo $product_data['entrepreneurName'] ?></p>
+
+
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <?php }}} else {
+    echo '<p class="কোন পণ্য নেই!</p>';
+}
+
+?>
+
+        </div>
+    </div>
+    </div>
+
+</section>
+
+
+
+<!-- মৃৎশিল্প -->
+
+
+<?php
+$cat = new Products();
+$function = new Validatefunction();
+
+$arr = $cat->getProductByCategoryName($function->escape_string('মৃৎশিল্প'));
+
+$convert = new Converter();
+// print_r($arr);
+// exit();
+?>
+
+
+<section class="kutir-shilpo">
+
+    <div class="container" id="mritshilpo">
+        <h2>মৃৎশিল্প  </h2>
+        <div class="row">
+
+            <?php
+if (!empty($arr)) {
+    foreach ($arr as $product_data) {
+        if ($product_data['quantity'] > 0) {
+            $product_quantity = $convert::en2bn($product_data['quantity']);
+            $product_price = $convert::en2bn($product_data['price']);
+
+            ?>
+            <div class="col-md-3 col-sm-6">
+
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="product.php?id=<?php echo $product_data['id'] ?>" class="image">
+                            <img src="images/category/<?php echo $product_data['image'] ?>" width="300" height="300">
+                        </a>
+                        <span class="product-discount-label"
+                            style="background-color:#b51e2ce8;font-weight:550;font-size:15px"><?php echo $product_price ?>৳
+                        </span>
+                        <ul class="product-links">
+                            <!-- <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li> -->
+                        </ul>
+                        <form action="includes/cart.inc.php" method="post">
+                            <input type="submit" class="add-to-cart" value="কার্টে যোগ করুন" name="cart-add"
+                                style="background-color:#dd505dc2;font-weight:550;border-radius:8px">
+                            <!-- <a href="includes/cart.inc.php?pid=<?php #echo $product_data['id'] ?>"
+                                class="add-to-cart">কার্টে
+                                যোগ করুন</a> -->
+
+                    </div>
+
+
+                    <div class="product-content">
+
+                        <input type="hidden" name="product_id" value="<?php echo $product_data['id'] ?>">
+                        <span style="font-size:16px;font-weight:550;">পরিমাণঃ</span> <input type="number" placeholder=""
+                            value="1" min="1" max="<?php echo $product_data['quantity'] ?>" name="quantity" style="">
+                        <input type="hidden" name="product_name" value="<?php #echo $fetch_products['name']; ?>">
+                        <input type="hidden" name="product_price" value=<?php #echo $product_data['price']; ?>">
+                        <input type="hidden" name="product_image" value="<?php #echo $fetch_products['image']; ?>">
+                        <!-- <h3 class="title">/h3> -->
+                        <h3 style="font-size:15px;font-weight:550"> <?php echo $product_data['name'] ?>
+                            (<span><?php echo $product_quantity ?>
+                                <?php echo $product_data['productType'] ?></span> ) </h3>
+
+
+                        <p style="font-size:14px ;font-weight:550"> <?php echo $product_data['entrepreneurName'] ?></p>
+
+
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <?php }}} else {
+    echo '<p class="কোন পণ্য নেই!</p>';
+}
+
+?>
+
+        </div>
+    </div>
+    </div>
+
+</section>
+
+
+
+
+<!-- বাঁশের তৈরি সামগ্রী -->
+
+
+<?php
+$cat = new Products();
+$function = new Validatefunction();
+
+$arr = $cat->getProductByCategoryName($function->escape_string('বাঁশের তৈরি সামগ্রী'));
+
+$convert = new Converter();
+// print_r($arr);
+// exit();
+?>
+
+
+<section class="kutir-shilpo">
+
+    <div class="container">
+        <h2>বাঁশের তৈরি সামগ্রী</h2>
+        <div class="row">
+
+            <?php
+if (!empty($arr)) {
+    foreach ($arr as $product_data) {
+        if ($product_data['quantity'] > 0) {
+            $product_quantity = $convert::en2bn($product_data['quantity']);
+            $product_price = $convert::en2bn($product_data['price']);
+
+            ?>
+            <div class="col-md-3 col-sm-6">
+
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="product.php?id=<?php echo $product_data['id'] ?>" class="image">
+                            <img src="images/category/<?php echo $product_data['image'] ?>" width="300" height="300">
+                        </a>
+                        <span class="product-discount-label"
+                            style="background-color:#b51e2ce8;font-weight:550;font-size:15px"><?php echo $product_price ?>৳
+                        </span>
+                        <ul class="product-links">
+                            <!-- <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li> -->
+                        </ul>
+                        <form action="includes/cart.inc.php" method="post">
+                            <input type="submit" class="add-to-cart" value="কার্টে যোগ করুন" name="cart-add"
+                                style="background-color:#dd505dc2;font-weight:550;border-radius:8px">
+                            <!-- <a href="includes/cart.inc.php?pid=<?php #echo $product_data['id'] ?>"
+                                class="add-to-cart">কার্টে
+                                যোগ করুন</a> -->
+
+                    </div>
+
+
+                    <div class="product-content">
+
+                        <input type="hidden" name="product_id" value="<?php echo $product_data['id'] ?>">
+                        <span style="font-size:16px;font-weight:550;">পরিমাণঃ</span> <input type="number" placeholder=""
+                            value="1" min="1" max="<?php echo $product_data['quantity'] ?>" name="quantity" style="">
+                        <input type="hidden" name="product_name" value="<?php #echo $fetch_products['name']; ?>">
+                        <input type="hidden" name="product_price" value=<?php #echo $product_data['price']; ?>">
+                        <input type="hidden" name="product_image" value="<?php #echo $fetch_products['image']; ?>">
+                        <!-- <h3 class="title">/h3> -->
+                        <h3 style="font-size:15px;font-weight:550"> <?php echo $product_data['name'] ?>
+                            (<span><?php echo $product_quantity ?>
+                                <?php echo $product_data['productType'] ?></span> ) </h3>
+
+
+                        <p style="font-size:14px ;font-weight:550"> <?php echo $product_data['entrepreneurName'] ?></p>
+
+
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <?php }}} else {
+    echo '<p class="কোন পণ্য নেই!</p>';
+}
+
+?>
+
+        </div>
+    </div>
+    </div>
+
+</section>
+
+<!-- 
+বেতের তৈরি সামগ্রী -->
+
+
+<?php
+$cat = new Products();
+$function = new Validatefunction();
+
+$arr = $cat->getProductByCategoryName($function->escape_string('বেতের তৈরি সামগ্রী '));
+
+$convert = new Converter();
+// print_r($arr);
+// exit();
+?>
+
+
+<section class="kutir-shilpo">
+
+    <div class="container">
+        <h2>বেতের তৈরি সামগ্রী </h2>
+        <div class="row">
+
+            <?php
+if (!empty($arr)) {
+    foreach ($arr as $product_data) {
+        if ($product_data['quantity'] > 0) {
+            $product_quantity = $convert::en2bn($product_data['quantity']);
+            $product_price = $convert::en2bn($product_data['price']);
+
+            ?>
+            <div class="col-md-3 col-sm-6">
+
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="product.php?id=<?php echo $product_data['id'] ?>" class="image">
+                            <img src="images/category/<?php echo $product_data['image'] ?>" width="300" height="300">
+                        </a>
+                        <span class="product-discount-label"
+                            style="background-color:#b51e2ce8;font-weight:550;font-size:15px"><?php echo $product_price ?>৳
+                        </span>
+                        <ul class="product-links">
+                            <!-- <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li> -->
+                        </ul>
+                        <form action="includes/cart.inc.php" method="post">
+                            <input type="submit" class="add-to-cart" value="কার্টে যোগ করুন" name="cart-add"
+                                style="background-color:#dd505dc2;font-weight:550;border-radius:8px">
+                            <!-- <a href="includes/cart.inc.php?pid=<?php #echo $product_data['id'] ?>"
+                                class="add-to-cart">কার্টে
+                                যোগ করুন</a> -->
+
+                    </div>
+
+
+                    <div class="product-content">
+
+                        <input type="hidden" name="product_id" value="<?php echo $product_data['id'] ?>">
+                        <span style="font-size:16px;font-weight:550;">পরিমাণঃ</span> <input type="number" placeholder=""
+                            value="1" min="1" max="<?php echo $product_data['quantity'] ?>" name="quantity" style="">
+                        <input type="hidden" name="product_name" value="<?php #echo $fetch_products['name']; ?>">
+                        <input type="hidden" name="product_price" value=<?php #echo $product_data['price']; ?>">
+                        <input type="hidden" name="product_image" value="<?php #echo $fetch_products['image']; ?>">
+                        <!-- <h3 class="title">/h3> -->
+                        <h3 style="font-size:15px;font-weight:550"> <?php echo $product_data['name'] ?>
+                            (<span><?php echo $product_quantity ?>
+                                <?php echo $product_data['productType'] ?></span> ) </h3>
+
+
+                        <p style="font-size:14px ;font-weight:550"> <?php echo $product_data['entrepreneurName'] ?></p>
+
+
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <?php }}} else {
+    echo '<p class="কোন পণ্য নেই!</p>';
+}
+
+?>
+
+        </div>
+    </div>
+    </div>
+
+</section>
+
+
+
+<!-- 
+গৃহসজ্জা সরঞ্জাম -->
+
+
+
+<?php
+$cat = new Products();
+$function = new Validatefunction();
+
+$arr = $cat->getProductByCategoryName($function->escape_string('গৃহসজ্জা সরঞ্জাম'));
+
+$convert = new Converter();
+// print_r($arr);
+// exit();
+?>
+
+
+<section class="kutir-shilpo">
+
+    <div class="container" id="grihoshojjaa">
+        <h2>গৃহসজ্জা সরঞ্জাম</h2>
+        <div class="row">
+
+            <?php
+if (!empty($arr)) {
+    foreach ($arr as $product_data) {
+        if ($product_data['quantity'] > 0) {
+            $product_quantity = $convert::en2bn($product_data['quantity']);
+            $product_price = $convert::en2bn($product_data['price']);
+
+            ?>
+            <div class="col-md-3 col-sm-6">
+
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="product.php?id=<?php echo $product_data['id'] ?>" class="image">
+                            <img src="images/category/<?php echo $product_data['image'] ?>" width="300" height="300">
+                        </a>
+                        <span class="product-discount-label"
+                            style="background-color:#b51e2ce8;font-weight:550;font-size:15px"><?php echo $product_price ?>৳
+                        </span>
+                        <ul class="product-links">
+                            <!-- <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li> -->
+                        </ul>
+                        <form action="includes/cart.inc.php" method="post">
+                            <input type="submit" class="add-to-cart" value="কার্টে যোগ করুন" name="cart-add"
+                                style="background-color:#dd505dc2;font-weight:550;border-radius:8px">
+                            <!-- <a href="includes/cart.inc.php?pid=<?php #echo $product_data['id'] ?>"
+                                class="add-to-cart">কার্টে
+                                যোগ করুন</a> -->
+
+                    </div>
+
+
+                    <div class="product-content">
+
+                        <input type="hidden" name="product_id" value="<?php echo $product_data['id'] ?>">
+                        <span style="font-size:16px;font-weight:550;">পরিমাণঃ</span> <input type="number" placeholder=""
+                            value="1" min="1" max="<?php echo $product_data['quantity'] ?>" name="quantity" style="">
+                        <input type="hidden" name="product_name" value="<?php #echo $fetch_products['name']; ?>">
+                        <input type="hidden" name="product_price" value=<?php #echo $product_data['price']; ?>">
+                        <input type="hidden" name="product_image" value="<?php #echo $fetch_products['image']; ?>">
+                        <!-- <h3 class="title">/h3> -->
+                        <h3 style="font-size:15px;font-weight:550"> <?php echo $product_data['name'] ?>
+                            (<span><?php echo $product_quantity ?>
+                                <?php echo $product_data['productType'] ?></span> ) </h3>
+
+
+                        <p style="font-size:14px ;font-weight:550"> <?php echo $product_data['entrepreneurName'] ?></p>
+
+
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <?php }}} else {
+    echo '<p class="কোন পণ্য নেই!</p>';
+}
+
+?>
+
+        </div>
+    </div>
+    </div>
+
+</section>
 
 
 <!-- <div class="category" id="category">

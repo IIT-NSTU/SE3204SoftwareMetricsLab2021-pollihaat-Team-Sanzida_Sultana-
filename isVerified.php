@@ -54,7 +54,7 @@ include 'config.php';
                                         <div class="d-flex justify-content-end  mb-3 mb-lg-4">
                                             <button type="submit" name="verified"
                                                 style="background-color:#993721;border:#993721"
-                                                class="btn btn-primary btn-lg">Submit</button>
+                                                class="btn btn-primary btn-lg">সাবমিট</button>
                                         </div>
                                     </form>
 

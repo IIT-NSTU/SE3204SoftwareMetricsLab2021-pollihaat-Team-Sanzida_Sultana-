@@ -85,7 +85,6 @@ $converter = new Converter();
 ?>
 
 
-
 <body>
     <section class="kutir-shilpo">
 
@@ -162,7 +161,7 @@ if (!empty($arr)) {
                 <form action="includes/review.inc.php" method="post">
 
                     <div class="provide-rating d-flex justify-content-center">
-                        <select name="rating" id="" required=""
+                        <select name="rating" id="" required="" style="font-size:20px;font-weight:550"
                             oninvalid="this.setCustomValidity('অনুগ্রহ করে আপনার মূল্যবান রেটিং দিন')"
                             oninput="setCustomValidity('')">
                             <option value="">রেটিং দিন
@@ -184,7 +183,7 @@ if (!empty($arr)) {
                     </div>
                     <div class="feedback-write d-flex justify-content-center">
 
-                        <textarea name="feedback" placeholder="আপনার মতামত জানান..." id="" cols="100" rows="5" min="1"
+                        <textarea name="feedback" style="font-size:20px;font-weight:550" placeholder="আপনার মতামত জানান..." id="" cols="100" rows="5" min="1"
                             maxlength=""></textarea>
                     </div>
                     <input type="hidden" name="product_id" value="<?php echo $product_id ?>">

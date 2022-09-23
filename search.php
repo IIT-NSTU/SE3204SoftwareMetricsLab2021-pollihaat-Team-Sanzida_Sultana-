@@ -26,7 +26,7 @@ $arr = $product->selectSpecificProduct(12, "latest");
         <form action="" method="post" style="display:flex;flex-direction:row">
             <input type="text" name="searchName" placeholder="পণ্য অনুসন্ধান করুন...." class="box">
             <input class="search-btn"
-                style="background:#554308;margin-left:20px;margin-bottom:15px;padding:.8rem .6rem;border-radius:2px;color:#fff;font-weight:550;font-size:16px"
+                style="background:#993721;margin-left:20px;margin-bottom:15px;padding:.8rem .6rem;border-radius:2px;color:#fff;font-weight:550;font-size:16px"
                 type="submit" value="অনুসন্ধান  করুন" name="search">
         </form>
     </section>
@@ -56,15 +56,14 @@ if (isset($_POST['search']) && isset($_POST['search']) != '') {
 
 <section class="kutir-shilpo">
 
-    <div class="container">
-        <h2>পণ্যসমূহ</h2>
+    <div class="container" id="grihoshojjaa">
+        <h2>পণ্য সমূহ</h2>
         <div class="row">
 
             <?php
 if (!empty($arr)) {
     foreach ($arr as $product_data) {
         if ($product_data['quantity'] > 0) {
-
             $product_quantity = $convert::en2bn($product_data['quantity']);
             $product_price = $convert::en2bn($product_data['price']);
 
@@ -77,7 +76,7 @@ if (!empty($arr)) {
                             <img src="images/category/<?php echo $product_data['image'] ?>" width="300" height="300">
                         </a>
                         <span class="product-discount-label"
-                            style="background-color:#7c6414;font-weight:550;font-size:15px"><?php echo $product_price ?>৳
+                            style="background-color:#b51e2ce8;font-weight:550;font-size:15px"><?php echo $product_price ?>৳
                         </span>
                         <ul class="product-links">
                             <!-- <li><a href="#"><i class="fa fa-search"></i></a></li>
@@ -86,7 +85,7 @@ if (!empty($arr)) {
                         </ul>
                         <form action="includes/cart.inc.php" method="post">
                             <input type="submit" class="add-to-cart" value="কার্টে যোগ করুন" name="cart-add"
-                                style="background-color:#836c27;font-weight:550;border-radius:8px">
+                                style="background-color:#dd505dc2;font-weight:550;border-radius:8px">
                             <!-- <a href="includes/cart.inc.php?pid=<?php #echo $product_data['id'] ?>"
                                 class="add-to-cart">কার্টে
                                 যোগ করুন</a> -->
@@ -97,9 +96,8 @@ if (!empty($arr)) {
                     <div class="product-content">
 
                         <input type="hidden" name="product_id" value="<?php echo $product_data['id'] ?>">
-                        <span style="font-size:16px;font-weight:550">পরিমাণঃ</span> <input type="number" placeholder=""
-                            value="1" min="1" max="<?php echo $product_data['quantity'] ?>" name="quantity"
-                            style="height:30px;font-size:20px;text-align:center;width:130px;background-color:#e3e0d9eb">
+                        <span style="font-size:16px;font-weight:550;">পরিমাণঃ</span> <input type="number" placeholder=""
+                            value="1" min="1" max="<?php echo $product_data['quantity'] ?>" name="quantity" style="">
                         <input type="hidden" name="product_name" value="<?php #echo $fetch_products['name']; ?>">
                         <input type="hidden" name="product_price" value=<?php #echo $product_data['price']; ?>">
                         <input type="hidden" name="product_image" value="<?php #echo $fetch_products['image']; ?>">
@@ -116,8 +114,14 @@ if (!empty($arr)) {
                     </form>
                 </div>
             </div>
-            <?php }}} else {}?>
+            <?php }}} else {
+    echo '<p class="কোন পণ্য নেই!</p>';
+}
+
+?>
+
         </div>
+    </div>
     </div>
 
 </section>

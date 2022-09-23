@@ -34,7 +34,7 @@ include "includes/header.php";
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw" style="margin-right: 5px;"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input class="form-control" placeholder="ইমেইল" type="email"
-                                                    style="padding:18px ;" name="email" autofocus required>
+                                                    style="padding:18px;font-size:17px ;" name="email" autofocus required>
                                             </div>
                                         </div>
                                         <!-- <div class="d-flex flex-row align-items-center" style="margin-bottom: 22px;">
@@ -47,7 +47,7 @@ include "includes/header.php";
                                         <div class="d-flex flex-row align-items-center" style="margin-bottom: 10px;">
                                             <i class="fas fa-lock fa-lg me-3 fa-fw" style="margin-right: 5px;"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input class="form-control" placeholder="পাসওয়ার্ড" type="password"
+                                                <input class="form-control;font-size:17px" placeholder="পাসওয়ার্ড" type="password"
                                                     style="padding:17px" name="password" required>
 
                                             </div>

@@ -31,7 +31,7 @@ include 'config.php';
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw" style="margin-right: 5px;"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="email" id="form3Example3c" name="femail"
-                                                    style="padding:19px" class="form-control form-control-lg"
+                                                    style="padding:19px;font-size:19px" class="form-control form-control-lg"
                                                     placeholder="আপনার ইমেইল লিখুন" required />
                                             </div>
                                         </div>
@@ -45,7 +45,7 @@ include 'config.php';
 
                                         <div class="d-flex justify-content-end  mb-3 mb-lg-4">
                                             <button type="submit" name="forgetpass"
-                                                style="background-color:#993721;border:#993721"
+                                                style="background-color:#993721;border:#993721;font-size:19px"
                                                 class="btn btn-primary btn-lg">নিশ্চিত করুন</button>
                                         </div>
                                     </form>
