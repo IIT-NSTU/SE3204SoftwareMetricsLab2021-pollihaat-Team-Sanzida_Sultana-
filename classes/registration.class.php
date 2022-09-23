@@ -164,10 +164,11 @@ class Registration
         } else {
             $_SESSION['msg'] = "আপনার কোন একাউন্ট খুঁজে পাওয়া যায়নি।অনুগ্রহ করে সাইন আপ করুন ";
 
-            header('Location:../forgetpassverified.php');
+            header('Location:../registration.php');
         }
 
     }
+
 
     // public function verifiedPinCode($v_code)
     // {
@@ -208,14 +209,31 @@ class Registration
         if ($total > 0) {
             $update = "UPDATE customers set isVerified='1' where email='$email' ";
             $query1 = $this->connection->query($update);
-            unset($_SESSION['forget_email']);
-            header('Location:../login.php');
+            // unset($_SESSION['forget_email']);
+            header('Location:../newGeneratePass.php');
 
         } else {
             $_SESSION['msg'] = "আপনার পিন কোডটি সঠিক নয়";
             header('Location:../forgetpassverified.php');
 
         }
+    }
+
+
+    
+    public function newPasswordGenerate($npass){
+        $this->password=$npass;
+        $this->email=$_SESSION['forget_email'];
+     $sql="UPDATE customers set password='$this->password' where email='$this->email'";
+     $query = $this->connection->query($sql);
+     unset($_SESSION['forget_email']);
+     $_SESSION['msg']="আপনার পাসওয়ার্ড টি পরিবর্তন করা হয়েছে";
+
+
+     header('Location:../login.php');
+  
+
+
     }
 
 }
