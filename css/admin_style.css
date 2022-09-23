@@ -1,5 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap');
+*{
+    font-family:'Noto Sans Bengali', sans-serif;
+}
 :root {
   --pink: #e84393;
   --add-button: #554308;
@@ -293,7 +295,7 @@ section {
   border-radius: 0.5rem;
   margin-top: 1rem;
   font-size: 1.8rem;
-  background-color: var(--add-button);
+  background-color: var(--tr-color);
   color: #fff;
   font-weight: 550;
   cursor: pointer;
@@ -306,7 +308,7 @@ section {
   border-radius: 0.5rem;
   margin-top: 1rem;
   font-size: 1.8rem;
-  background-color: var(--add-btnhover);
+  background-color: var(--lighfont-color);
   font-weight: 600;
   color: #0e1c36;
   cursor: pointer;
@@ -366,6 +368,8 @@ section {
   background-color: var(--white);
   border-radius: 0.5rem;
   text-transform: capitalize;
+  margin: 30px;
+  height: 150px;
 }
 
 .btn {
@@ -394,6 +398,7 @@ section {
 .btn:hover,
 .option-btn:hover {
   background-color: var(--black);
+  color:#fff;
 }
 
 @keyframes fadeIn {
@@ -757,7 +762,7 @@ category update  */
   margin: 0 auto;
   padding: 2rem;
   border-radius: 0.5rem;
-  background: var(--bg-color);
+  background: #f5a49278;
 }
 
 .container .admin-product-form-container form h3 {
