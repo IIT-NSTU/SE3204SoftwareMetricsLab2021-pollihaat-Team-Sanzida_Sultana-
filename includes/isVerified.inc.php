@@ -79,3 +79,21 @@ if (isset($_POST['f_verified']) && isset($_POST['f_verified']) != '') {
     $verified->verifiedPinCode($code);
 
 }
+if(isset($_POST['newPassgen']) && $_POST['newPassgen']!=''){
+   $Npassword=$function->escape_string($_POST['Npassword']);
+   $Cpassword=$function->escape_string($_POST['Cpassword']);
+   
+
+
+    if ($Npassword != $Cpassword) {
+
+        $_SESSION['msg'] = "দুঃখিত পাসওয়ার্ড মিলে নি| আবার চেষ্টা করুন।";
+        header('Location:../newGeneratePass.php');
+        exit();
+
+       
+    }
+  $verified->newPasswordGenerate($Npassword);
+
+
+}

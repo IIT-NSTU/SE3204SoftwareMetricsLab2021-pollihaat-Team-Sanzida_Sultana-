@@ -1,13 +1,13 @@
-<button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
 <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
-<section id="footer" class="footer">
+<section id="footer" style="margin-top:290px"class="footer" >
     <div class="container">
-        <div class="row mb-5">
+        <div class="row ">
 
             <div class="col-md-6 col-sm-12">
-                <h4>আমাদের অভিলক্ষ্য</h4>
+                <h1 style="font-weight:560;margin:px">আমাদের অভিলক্ষ্য</h1>
 
-                <div style="font-weight:560 ;">
+                <div style="font-weight:560 ;font-size:13px;margin:px">
                     বাঙালির হারিয়ে যাওয়া ঐতিহ্যকে আবার নতুনভাবে নতুনরুপে প্রতিটি বাঙালির দ্বারপ্রান্তে পৌঁছে দেয়া,
                     সংস্কৃতিমনা প্রতিটি ক্রেতাকে সর্বোৎকৃষ্ট পণ্যটি নিশ্চিতকরণ এবং পিছিয়ে পড়া গ্রামীণ জনগোষ্ঠীর আয়ের
                     অন্যতম সুযোগ সৃষ্টি।</div>
@@ -16,7 +16,7 @@
 
             <div class="col-md-6 col-sm-12" style=" display:flex;justify-content:center;">
                 <div class="Contact">
-                    <h4>যোগাযোগ করুন</h4>
+                    <h4 style="margin-top:12px ;">যোগাযোগ করুন</h4>
 
 
 
@@ -35,26 +35,33 @@
 
 
         </div>
+        
 
     </div>
-</section>
-<section id="copyright">
+  
 
-    <div class="last-section ">
-        <div class="col-md-6 ">
-            <p class="pull-left ">pollihaat &copy; 2022 team:shonirvor</p>
-        </div>
-        <div class="col-md-6 d-flex flex-row-reverse">
-            <p class="pull-right right ">Template By: <a style="color:black"
-                    href="https://web.facebook.com/sanzida.nitu.353">shonirvor</a>
-            </p>
-        </div>
+</section>
+<section id="copyright" style="position:;
+    width: 100%;
+    left: 0;
+    right: 0;bottom:0">
+
+<div class="last-section ">
+    <div class="col-md-6 ">
+        <p class="pull-left " style="font-size:14px;font-weight:500 ;">pollihaat &copy; 2022 team:shonirvor</p>
     </div>
+    <div class="col-md-6 d-flex flex-row-reverse">
+        <p class="pull-right right;color:#fff;font-size:15px;font-weight:500 ">Template By: <a style="color:#fff;font-size:15px;font-weight:500"
+                href="https://web.facebook.com/sanzida.nitu.353">shonirvor</a>
+        </p>
+    </div>
+</div>
 
 
 
 
 </section>
+
 
 
 

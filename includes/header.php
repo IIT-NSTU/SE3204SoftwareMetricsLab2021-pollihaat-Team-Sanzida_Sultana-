@@ -74,7 +74,7 @@ unset($_SESSION['msg']);
     <div class="flex">
 
         <a class="navbar-brand" href="#">
-            <img style="margin-top:0" src="admin/images/logo (transparent3).png" alt="" width="160" height="60px">
+            <img style="margin-top:0" src="admin/images/logo (transparent3).png" alt="" width="200" height="70px">
         </a>
 
         <span>
@@ -104,7 +104,7 @@ if (isset($_SESSION['cus_id'])) {
 
         <nav class="navbar navbar-expand-lg navbar-light">
 
-            <a style="font-weight:549" href="index.php">হোম</a>
+            <a  href="index.php">হোম</a>
             <a href="marketplace.php">ক্যাটাগরি</a>
             <a href="allProduct.php">পণ্যসমূহ</a>
             <a href="customerOrder.php">অর্ডারসমূহ</a>
@@ -150,8 +150,8 @@ if (isset($_SESSION['customer_name'])) {
                 <a style="text-align: center;font-size:18px;color:white;font-weight:560" href="includes/logout.inc.php"
                     class="delete-btn">লগ আউট</a>
             </div>
-            <div><i style="margin:10px;font-size:20px" class="fa-solid fa-pen"></i><a href="">প্রোফাইল
-                    ইডিট করুন</a></div>
+            <!-- <div><i style="margin:10px;font-size:20px" class="fa-solid fa-pen"></i><a href="">প্রোফাইল
+                    ইডিট করুন</a></div> -->
             <?php }?>
             <?php if (!isset($_SESSION['customer_name'])) {?>
             <div style="margin-bottom:20px"><i style="margin:10px;font-size:20px;"
